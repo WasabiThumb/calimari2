@@ -1,0 +1,40 @@
+{
+  "name": "calimari",
+  "version": "2.0.0",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "repository": "github:WasabiThumb/calimari2",
+  "homepage": "https://github.com/WasabiThumb/calimari2",
+  "bugs": {
+    "url": "https://github.com/WasabiThumb/calimari2/issues",
+    "email": "wasabithumbs@gmail.com"
+  },
+  "scripts": {
+    "test": "npx jest",
+    "build": "npx tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "input",
+    "range",
+    "set",
+    "number",
+    "integer",
+    "io",
+    "parser"
+  ],
+  "author": "wasabithumbs",
+  "license": "Apache-2.0",
+  "description": "Lenient parser for number ranges & sets",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.10",
+    "jest": "^29.7.0",
+    "toml": "^3.0.0",
+    "ts-jest": "^29.2.2",
+    "typescript": "^5.5.3"
+  }
+}

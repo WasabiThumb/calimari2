@@ -1,0 +1,34 @@
+
+# Holds test cases for { allGroups: true }
+multi-group = [
+    { in = "77", out = [[77]] },
+    { in = "1, 2, 3-5", out = [[1, 2, 3, 4, 5]] },
+    { in = "1, 2, 3 - 5", out = [[1, 2, 3, 4, 5]] },
+    { in = "10 - 20 ^ (12 - 18)", out = [[10, 11, 19, 20]] },
+    { in = "((((5))))", out = [[5]] },
+    { in = "-15 - -10", out = [[-15, -14, -13, -12, -11, -10]] },
+    { in = "7 || 8 || 9", out = [[7], [8], [9]] },
+    { in = "13 || 14 - 16 || 17", out = [[13], [14, 15, 16], [17]] },
+    { in = "-93 ^ -93", out = [[]] },
+]
+
+# Holds test cases for { allGroups: false }
+single-group = [
+    { in = "77", out = [77] },
+    { in = "1, 2, 3-5", out = [1, 2, 3, 4, 5] },
+    { in = "1, 2, 3 - 5", out = [1, 2, 3, 4, 5] },
+    { in = "10 - 20 ^ (12 - 18)", out = [10, 11, 19, 20] },
+    { in = "((((5))))", out = [5] },
+    { in = "-15 - -10", out = [-15, -14, -13, -12, -11, -10] },
+    { in = "7 || 8 || 9", out = [7, 8, 9] },
+    { in = "13 || 14 - 16 || 17", out = [13, 14, 15, 16, 17] },
+    { in = "-93 ^ -93", out = [] },
+]
+
+# Holds test cases that should fail
+error = [
+    { in = "(77", errors = ["BAD_FORMAT"] },
+    { in = "4 12", errors = ["BAD_SYMBOL"] },
+    { in = "100 > 50", errors = ["BAD_SYMBOL"] },
+    { in = "83, 💩", errors = ["BAD_VALUE", "BAD_SYMBOL"] }
+]
